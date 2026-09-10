@@ -1,0 +1,47 @@
+.header {
+  position: sticky; top: 0; z-index: 30; height: 88px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 38px; background: rgba(255,255,255,.97);
+  border-bottom: 1px solid rgba(17,17,17,.06);
+}
+.brand { font-family: var(--font-ui); font-size: .88rem; font-weight: 650; letter-spacing: .28em; text-transform: uppercase; }
+.menuButton { display: grid; justify-items: center; gap: 4px; min-width: 56px; }
+.hamb { width: 38px; display: grid; gap: 6px; }
+.hamb span { height: 3px; background: #111; }
+.menuLabel { font: 700 .65rem/1 var(--font-ui); letter-spacing: .12em; }
+.overlay { position: fixed; inset: 0; z-index: 40; opacity: 0; pointer-events: none; background: rgba(0,0,0,.62); transition: opacity .25s ease; }
+.overlayOpen { opacity: 1; pointer-events: auto; }
+.drawer { position: fixed; top: 0; right: 0; z-index: 50; width: min(100vw,420px); height: 100dvh; display: flex; flex-direction: column; background: #fff; transform: translateX(102%); transition: transform .38s cubic-bezier(.25,1,.5,1); box-shadow: -12px 0 34px rgba(0,0,0,.12); }
+.drawerOpen { transform: none; }
+.close { position: absolute; right: 18px; top: 10px; width: 54px; height: 54px; display: grid; place-items: center; font-size: 2.4rem; font-weight: 300; }
+.drawerNav { margin: auto 0; display: grid; justify-items: center; gap: 42px; padding: 70px 20px 30px; }
+.navItem { position: relative; font: 300 1.3rem/1 var(--font-ui); letter-spacing: .24em; }
+.navItem::after { content: ""; position: absolute; left: 50%; right: 50%; bottom: -10px; height: 1px; background: #111; transition: .25s ease; }
+.navItem:hover::after, .navActive::after { left: 0; right: 0; }
+.socials { display: flex; justify-content: center; gap: 14px; padding-bottom: 48px; }
+.social { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 50%; background: #111; color: #fff; font: 700 .9rem/1 var(--font-ui); }
+.pageTitle { position: relative; z-index: 2; min-height: 190px; display: grid; place-items: center; margin-bottom: 34px; overflow: visible; }
+.pageTitle::before { content: "VISUAL DEVELOPMENT"; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: calc(100vw - 48px); white-space: nowrap; text-align: center; color: rgba(17,17,17,.045); font: 900 clamp(2rem,7vw,6.4rem)/1 var(--font-ui); letter-spacing: .055em; pointer-events: none; }
+.pageTitle h1 { position: relative; z-index: 2; margin: 0; font: 300 clamp(2.5rem,8vw,4.5rem)/1 var(--font-ui); letter-spacing: .25em; text-transform: uppercase; text-align: center; }
+.pageTitle h1::after { content: ""; display: block; width: 48px; height: 1px; margin: 20px auto 0; background: #111; }
+.characterCard { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.avatar { width: clamp(120px,35vw,180px); aspect-ratio: 1; display: grid; place-items: center; overflow: hidden; border-radius: 50%; background: #fff; box-shadow: 0 12px 30px rgba(0,0,0,.08),0 0 0 1px rgba(17,17,17,.04); transition: transform .35s ease; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+.characterCard:hover .avatar { transform: translateY(-7px); }
+.characterName { margin-top: 18px; font: 600 .85rem/1.4 var(--font-ui); letter-spacing: .15em; text-transform: uppercase; }
+.characterSub { margin-top: 5px; color: #666; font: 500 .6rem/1.4 var(--font-ui); letter-spacing: .1em; text-transform: uppercase; }
+.heroSlider { position: absolute; inset: 0; }
+.heroSlide { position: absolute; inset: 0; opacity: 0; transition: opacity .8s ease; }
+.heroSlideActive { opacity: 1; }
+.heroSlide img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.58) saturate(.82) contrast(1.05); }
+@media (max-width: 820px) {
+  .header { position: relative; height: 116px; padding: 0 38px; }
+  .pageTitle { min-height: 190px; margin-bottom: 30px; }
+  .pageTitle::before { width: calc(100vw - 28px); font-size: clamp(1.65rem,6.9vw,4.4rem); letter-spacing: .035em; }
+  .pageTitle h1 { font-size: clamp(2.6rem,12vw,4rem); }
+}
+@media (max-width: 430px) {
+  .header { padding: 0 28px; }
+  .brand { font-size: .82rem; }
+  .pageTitle::before { width: calc(100vw - 18px); font-size: clamp(1.35rem,6.6vw,2.35rem); letter-spacing: .025em; }
+}
